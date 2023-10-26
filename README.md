@@ -16,7 +16,12 @@
 ![Jenkins](	https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=Jenkins&logoColor=white)
 ![city](https://img.shields.io/badge/TeamCity-000000?style=for-the-badge&logo=TeamCity&logoColor=white)
 
-## Repositorio para el Reto Final de DevOps
+# Repositorio para el Reto Final de DevOps
+
+---
+![](https://github.com/roxsross/roxsross/blob/main/images/roxsross-banner-1.png)
+
+##### Nos Vemos 🔥🔥🔥🔥
 
 ### Enunciado
 
@@ -110,7 +115,7 @@ Se pide declarar la infraestructura como código, usando cualquiera de las herra
 
 Aquí nos podríamos estar durante días y semanas y no terminar así que. para centrar un poco el fuego, se pide entregar al menos uno de los tres ambientes identificados:
 
-<img src="https://pbs.twimg.com/media/CBItAVdUIAAieFO?format=jpg&name=small" alt="drawing" width="30%"/>
+<img src="https://pbs.twimg.com/media/CBItAVdUIAAieFO?format=jpg&name=small" alt="drawing" width="50%"/>
 
 
 #### Entorno de producción
