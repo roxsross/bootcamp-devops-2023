@@ -24,8 +24,8 @@
 ##### Nos Vemos 🔥🔥🔥🔥
 
 ### Enunciado
-
-#### Caso de estudio - Servicio web de consultas devops
+---
+### Caso de estudio - Servicio web de consultas devops
 
 **Nuestra aplicación es un servidor web que expone una serie de endpoints:**
 
