@@ -45,7 +45,7 @@ El servicio almacena métricas de uso para cada endpoint en una base de datos No
 Dado el caso de estudio, se debe elaborar los siguientes entregables:
 
 ### Arquitectura de la solución
-![Info](./docs/Arquitectura.md)
+[Info sobre la Arquitectura](./docs/Arquitectura.md)
 
 Elaborar un documento formal en el que se describa la arquitectura de la solución. Se valorará positivamente una redacción clara y correcta y el uso de diagramas y topologías allá donde una imagen valga más que mil palabras.
 
@@ -90,7 +90,7 @@ Explicar en detalle cómo se llevará a cabo el despliegue de nuevas versiones d
 Se pide buscar al menos un SLA (Service Level Agreement) para nuestro servicio, detallar cómo se conseguiría medir el indicador asociado (SLI) y cómo podríamos saber qué podemos incumplirlo, con un plan de acción para remediarlo.
 
 ### Entorno de Desarrollo
-[info](./docs/Entorno.md)
+[Info sobre el uso de entornos](./docs/Entorno.md)
 
 Para facilitar el onboarding en el proyecto de nuevos desarrolladores, nada mejor que tener un entorno local de desarrollo potente, fiable y que se asemeje lo más posible al entorno final.
 
