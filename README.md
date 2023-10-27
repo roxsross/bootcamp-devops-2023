@@ -26,6 +26,34 @@
 ---
 ### Ejecicio 3- Configura un Pipeline y Despliega tus aplicaciones con seguridad end to end
 
+Configurar un pipeline y desplegar aplicaciones con seguridad de extremo a extremo es una práctica esencial en el desarrollo de software y DevOps. Aquí tienes algunas razones fundamentales para hacerlo:
+
+- Automatización y Eficiencia: Configurar un pipeline de implementación continua (CI/CD) te permite automatizar el proceso de construcción, pruebas y despliegue de tus aplicaciones. Esto ahorra tiempo y esfuerzo, ya que las tareas repetitivas se manejan automáticamente, lo que permite a los equipos centrarse en tareas más críticas.
+
+- Consistencia: Un pipeline bien configurado garantiza la consistencia en el proceso de despliegue. Cada vez que se realiza una implementación, se siguen los mismos pasos, lo que reduce la posibilidad de errores humanos y problemas de configuración.
+
+- Rápida Entrega: La implementación continua permite una entrega rápida y constante de nuevas características y correcciones de errores. Los equipos pueden responder rápidamente a las demandas del negocio y a las necesidades de los usuarios.
+
+- Seguridad: Configurar un pipeline de CI/CD con seguridad end to end garantiza que se realicen pruebas y controles de seguridad en cada etapa del proceso de despliegue. Esto ayuda a identificar y abordar problemas de seguridad antes de que lleguen a producción.
+
+- Mayor Calidad: La automatización de pruebas, que es una parte integral de un pipeline de CI/CD, mejora la calidad del software. Las pruebas automatizadas detectan problemas de manera más efectiva y garantizan que el software cumpla con los estándares de calidad.
+
+- Rollbacks más seguros: Si se produce un problema en la implementación, un pipeline bien configurado permite realizar rollbacks de manera segura y eficiente. Esto minimiza el impacto en los usuarios y en la operación del negocio.
+
+- Visibilidad y Trazabilidad: Los pipelines de CI/CD proporcionan visibilidad y trazabilidad en todo el proceso de despliegue. Puedes rastrear qué cambios se implementaron, cuándo y por quién.
+
+- Reducción de Costos: La automatización y la eficiencia de un pipeline de CI/CD pueden reducir los costos operativos al minimizar la necesidad de intervención manual y reducir los tiempos de inactividad no planificados.
+
+- Escalabilidad: A medida que tu aplicación crece, un pipeline de CI/CD bien diseñado te permite escalar tus procesos de despliegue de manera eficiente para manejar mayores cargas de trabajo.
+
+- Cultura de Colaboración: La implementación continua promueve una cultura de colaboración entre equipos de desarrollo y operaciones, lo que es fundamental para el éxito de DevOps.
+
+En resumen, configurar un pipeline de CI/CD y desplegar aplicaciones con seguridad de extremo a extremo es esencial para lograr una entrega de software eficiente, segura y de alta calidad. Ayuda a automatizar tareas, garantiza la coherencia, mejora la seguridad y permite a los equipos de desarrollo responder rápidamente a las necesidades del negocio y los usuarios.
+
+### Entregables.
+
+En lo posible se debe realizar en equipo y cargar los desafios en el formulario. [pagina de retos](https://reto.295devops.com)
+
 ### _"DevOps es el arte de la colaboración y la automatización, donde la innovación y la confiabilidad se unen para crear un camino continuo hacia el éxito."_
 
 🔥🔥🔥🔥
