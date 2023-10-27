@@ -106,6 +106,8 @@ En lo posible se debe realizar en equipo y cargar los desafios en el formulario.
 
 🔥🔥🔥🔥
 
+<img width="80%" src="https://roxsross-linktree.s3.amazonaws.com/295-full-website-banner-transparent-white.png"> 
+
 
 ### ✉️  &nbsp;Contactos 
 
