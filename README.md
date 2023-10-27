@@ -24,88 +24,131 @@
 ### by RoxsRoss
 
 ---
-DevOps es una práctica y cultura que se enfoca en la colaboración y comunicación estrecha entre los equipos de desarrollo de software (Dev) y operaciones (Ops) en una organización. El objetivo principal de DevOps es acortar el ciclo de desarrollo de software, permitir entregas de software más frecuentes y confiables, y mejorar la automatización de tareas relacionadas con la infraestructura y el despliegue.
+El **desafío final** es surfear las olas en práctica y desafiar los conocimientos sobre las herramientas tecnológicas y conceptos teóricos aprendidos durante estos meses.
+En las clases vimos: Intro DevOps, Git, Docker, Kubernetes, CI/CD, Jenkins, Github Actions, Cloud, Security, etc.
 
-**Aprender DevOps y adoptar sus principios puede proporcionar varios beneficios, incluyendo:**
+## **Objetivos**:
+- Utilizar todo lo aprendido durante el bootcamp
+- Proponer y llevar a cabo una solución general a la problemática
+- Simular el caso real del ciclo de vida de una aplicación
+- La automatización es la clave
+- Crear y mantener entornos productivos y no productivos (develop, testing)
+- Aprender a utilizar nuevas Tools
+- Aprender a trabajar en equipo para resolver dudas o problemáticas
 
-- Entregas más rápidas: DevOps permite la entrega continua de software, lo que significa que los cambios se pueden implementar y desplegar de manera más rápida en comparación con los enfoques tradicionales. Esto es especialmente valioso en entornos ágiles.
+## **Requerimiento:**
+La empresa **ZERO Technology**, solicita al Equipo de DevOps Trainer SuperPower 🚀 la contenerizacion de su aplicacion "Products DevOps" en la que incluye:
 
-- Mayor confiabilidad: La automatización y las pruebas continuas ayudan a identificar y solucionar problemas antes de que afecten a los usuarios finales, lo que conduce a sistemas más confiables y de alta calidad.
+Los proyectos estan formados por servicios (**frontend** y **backends**) el requerimiento apunta a desplegarlo en un cluster de Kubernetes. 
 
-- Mejor colaboración: Fomenta la colaboración entre los equipos de desarrollo y operaciones, lo que reduce los silos organizativos y mejora la comunicación.
+- Frontend
+- Backend: products , merchandise & shopping-cart
 
-- Escalabilidad y flexibilidad: La infraestructura como código (IaC) y la automatización permiten escalar y adaptar rápidamente la infraestructura según las necesidades, lo que es fundamental en entornos de nube.
+Apuntando a lograr administrar el ciclo de las aplicaciones dentro del cluster de forma transparente y que además se pueda automatizar el deploy desde el repositorio.
 
-- Reducción de costos: La automatización y la eficiencia en la administración de infraestructura pueden reducir costos operativos.
+#### Frontend
+Aplicacion realizada en express y se expone en el puerto 3000
 
-- Mayor seguridad: Al integrar prácticas de seguridad en el ciclo de vida del desarrollo, DevOps puede ayudar a mejorar la seguridad de las aplicaciones y la infraestructura.
+### Backend products
+Aplicacion realizada en express y se expone en el puerto 3001
 
-**El roadmap de DevOps es una guía que te proporciona una visión general de los pasos y áreas clave que debes considerar al adoptar e implementar DevOps en tu organización. A continuación, te ofrezco un roadmap típico de DevOps que puede ayudarte a planificar tu proceso de adopción:**
+### Backend shopping-cart
+Aplicacion realizada en express y se expone en el puerto 3002
 
-- Cultura y colaboración: Fomenta una cultura de colaboración entre equipos de desarrollo y operaciones.
-Promueve la comunicación y la responsabilidad compartida.
-
-- Automatización:Identifica procesos manuales que se pueden automatizar, como compilación, pruebas y despliegue.
-Implementa herramientas de automatización, como CI/CD (Integración Continua/Despliegue Continuo).
-
-- Infraestructura como Código (IaC):Adopta el concepto de IaC para gestionar la infraestructura de manera programática.
-Utiliza herramientas como Terraform o Ansible para definir y desplegar la infraestructura.
-
-- Control de versiones: Utiliza sistemas de control de versiones como Git para rastrear cambios en el código y la infraestructura.
-
-- Integración continua y Despliegue continuo (CI/CD):Automatiza la construcción, pruebas y análisis de calidad del código cada vez que se realizan cambios é Implementa la entrega continua, automatizando el proceso de despliegue en entornos de prueba y producción. Utiliza herramientas como Jenkins, Github Actions, Travis CI o GitLab CI acompañada de Kubernetes, Docker, o servicios en la nube
-
-- Monitoreo y observabilidad: Implementa herramientas de monitoreo y observabilidad para rastrear el rendimiento de aplicaciones y sistemas en tiempo real. Utiliza soluciones como Prometheus, Grafana o Datadog.
-
-- Seguridad en DevOps: Integra la seguridad en todo el ciclo de vida de desarrollo mediante prácticas como "DevSecOps".
-Realiza pruebas de seguridad automatizadas y auditorías regulares.
-
-- Resiliencia y recuperación: Diseña sistemas para la resiliencia y capacidad de recuperación, implementando estrategias de redundancia y recuperación ante fallos.
-
-- Gestión de configuración: Implementa una gestión de configuración eficiente para controlar y mantener versiones de la configuración del sistema y las aplicaciones.
-
-- Evaluación y mejora continua: Realiza evaluaciones regulares de tu implementación de DevOps y busca oportunidades de mejora.
-
-> Ajusta y adapta tus prácticas de DevOps según el feedback y los cambios en las necesidades de tu organización.
-  Recuerda que el roadmap de DevOps puede variar según la organización, su tamaño, sus necesidades y su nivel de madurez en DevOps. Es importante personalizar tu camino de acuerdo con tus circunstancias específicas. Además, DevOps es una filosofía que promueve la mejora continua, por lo que la adaptación y la evolución son clave en su implementación.
-
-Roadmap DevOps Recomendado [Guía](https://roadmap.sh/devops)
-
-### Sobre el Temarío 
-Son 10 clases donde cubriremos estos temas:
-
-- Intro DevOps
-- Linux Básico con enfoque de automatización
-- Docker
-- Kubernetes
-- AWS
-- Terraform
-- CICD
-- DevSecOps
-- Chaos
-- Python
-
-### Sobre los Desafios.
-
-Estarán disponibles en la web de [retos](https://reto.295devops.com)
-En esta edicion del **Bootcamp DevOps** 
-se realizará un total de [3] Ejecicios y [1] Reto final
-
-### Reto final
-
-Están disponibles en la web de [retos](https://reto.295devops.com)
-
-> Solo debes escoger uno de los retos finales, aunque si te animas podes hacerlos todos. 🔥🔥🔥🔥
+### Backend merchandise
+Aplicacion realizada en express y se expone en el puerto 3003
 
 
-### Entregables.
+#### Build Docker 
+- Para construir ejecutamos lo siguiente:
+```
+    docker build -t ms-frontend:1.0 frontend
+    docker build -t ms-products:1.0 products
+    docker build -t ms-merchandise:1.0 merchandise
+    docker build -t ms-shopping-cart:1.0 shopping-cart
+```
+#### Prueba Local
+    cd micro-service-name 
+    npm install
+    npm run
+    
 
-En lo posible se debe realizar en equipo y cargar los desafios en el formulario. [pagina de retos](https://reto.295devops.com)
+#### Iniciar los contenedores 
+    docker run -d -p 3000:3000 \
+    -e PRODUCTS_SERVICE=host.docker.internal \
+    -e SHOPPING_CART_SERVICE=host.docker.internal \
+    -e MERCHANDISE_SERVICE=host.docker.internal \
+    ms-frontend:1.0
 
-### _"DevOps es el arte de la colaboración y la automatización, donde la innovación y la confiabilidad se unen para crear un camino continuo hacia el éxito."_
+    docker run -d -p 3001:3001 ms-products:1.0
+    docker run -d -p 3002:3002 ms-shopping-cart:1.0
+    docker run -d -p 3003:3003 ms-merchandise:1.0
 
-🔥🔥🔥🔥
+## **Arquitectura del Cluster:**
+Dentro del cluster se proponen dos **entornos**: uno no productivo (**dev**) y uno productivo (**prod**). Cada entorno debe ser creado y administrado de forma independiente 
 
+Los servicios se van a administrar a partir de manifiestos para desplegar las aplicaciones en kubernetes. 
+
+- Pueden aprovisionar usando minikube,  k3s ó killercoda
+
+<p align="center"><img src="./assets/minikube.jpeg" width="400"/></p>
+
+> Si la opcion es usar EC2 
+### Infra:
+- Aprovisionar 2 servidores AWS EC2 con Terraform (server-dev, server-prd)
+- Crear los ficheros de terraform + userdata (docker+docker-compose)
+
+## **CICD**
+Como plataforma para versionar el código e implementar el CI/CD pipeline se va a utilizar alguna de las siguientes opciones: 
+- **Jenkins**
+- **Github Actions**
+- **Gitlab**
+
+> Siguiendo la estrategia de branching por entornos.
+
+## **CICD:**
+Se debe configurar un CI/CD pipeline que implemente las siguientes stages básicos:
+- Build de la imágen de Dockerfile
+- Push de la imágen a DockerHub
+- Controlar la version de la aplicacion
+- Deploy de la aplicación en algunas de estas opciones:
+    - Minikube
+    - EC2 (docker-docker-compose)
+    - EC2 + k3s
+
+Luego agregar:
+- Stage de aprobación manual antes del deploy cuando el entorno al que se va a deployar es producción
+- Notificación del resultado del pipeline por Slack/Telegram
+
+<p align="center"><img src="./assets/cicd.png" width="400"/></p>
+
+## **Arquitectura:**
+Realizar un diseño gráfico de las herramientas y servicios que utilizarían si implementaran esta solución en una Cloud (AWS, GCP, Azure, etcétera).
+
+## **Observaciones y recomendaciones:**
+- La arquitectura de la aplicación está formada por servicios backends y frontend los cuales deberían tener su propio repositorio.
+- Se puede realizar un docker-compose para probar local la aplicación en su conjunto.
+- Se puede deployar ingress para frontend, backend para poder utilizar una url configurada en */etc/hosts* ó usando wildcard DNS https://nip.io/ .
+- Cada servicio debe tener su dockerfile.
+- Documentación
+
+
+## Resultado
+
+![](docs/1.png)
+![](docs/2.png)
+![](docs/3.png)
+![](docs/4.png)
+![](docs/5.png)
+
+> Busca los logros donde no hay límites by @roxsross
+
+<p align="center"><img src="./assets/devopsFinal.png" width="400"/></p>
+<p align="center"><img src="./assets/devopsFinal1.png" width="400"/></p>
+
+## Contribuciones
+
+Como siempre, cualquier contribución es bienvenida, simplemente forkeá este repo y enviame una PR.  
 
 ### ✉️  &nbsp;Contactos 
 
