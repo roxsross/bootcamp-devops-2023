@@ -1,0 +1,331 @@
+{
+  "SchemaVersion": 2,
+  "ArtifactName": "trivy-image:89070ef8aa3311c0cdfdf7223ea47e916707ff82",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "OS": {
+      "Family": "alpine",
+      "Name": "3.17.3"
+    },
+    "ImageID": "sha256:0408a4960e8d57b3bc593289a3c3e2c4121a9ce07481b1ee0a06a99883999f54",
+    "DiffIDs": [
+      "sha256:f1417ff83b319fbdae6dd9cd6d8c9c88002dcd75ecf6ec201c8c6894681cf2b5",
+      "sha256:1d8bcb7a961eba17f36a9bdfed6e988efc36f628f79df427609b92817a3888f6",
+      "sha256:b951f8a113f5cb174e44d411da76c4f72fef8e95ef1d03bcf4a1592a21a8aeb6",
+      "sha256:3cddc64f59e23f9de6ac9ea28cbc3d3095ddd726b53dd241a429a843f53dccf1",
+      "sha256:425f13041034f125ef0716ed564e988fbf2116ac716396f0e27bded4e1102fbf",
+      "sha256:123bedc32ea6c094d9c71d9f4b1ecbca87f47727ce1b3609a10a1319afba14f5",
+      "sha256:086ec7348995a9b70dade37d0e6867886e617a3e9db7927d2381416f83523915"
+    ],
+    "RepoTags": [
+      "trivy-image:89070ef8aa3311c0cdfdf7223ea47e916707ff82"
+    ],
+    "ImageConfig": {
+      "architecture": "amd64",
+      "container": "64d28c8eb2eb249331b19d5f74a54683451cb18efcd5e1b115762c4d47f3c265",
+      "created": "2023-06-11T18:42:35.278523677Z",
+      "docker_version": "20.10.24+azure-1",
+      "history": [
+        {
+          "created": "2023-03-29T18:19:24.348438709Z",
+          "created_by": "/bin/sh -c #(nop) ADD file:9a4f77dfaba7fd2aa78186e4ef0e7486ad55101cefc1fabbc1b385601bb38920 in / "
+        },
+        {
+          "created": "2023-03-29T18:19:24.45578926Z",
+          "created_by": "/bin/sh -c #(nop)  CMD [\"/bin/sh\"]",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-03-29T22:22:08.831454823Z",
+          "created_by": "/bin/sh -c #(nop)  ENV NODE_VERSION=16.20.0",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-03-29T22:22:16.737694712Z",
+          "created_by": "/bin/sh -c addgroup -g 1000 node     \u0026\u0026 adduser -u 1000 -G node -s /bin/sh -D node     \u0026\u0026 apk add --no-cache         libstdc++     \u0026\u0026 apk add --no-cache --virtual .build-deps         curl     \u0026\u0026 ARCH= \u0026\u0026 alpineArch=\"$(apk --print-arch)\"       \u0026\u0026 case \"${alpineArch##*-}\" in         x86_64)           ARCH='x64'           CHECKSUM=\"b3f80fe7d0f1af6fe25ffedc7237ca519965d08fc800eab29cf45cd5b90cdb26\"           ;;         *) ;;       esac   \u0026\u0026 if [ -n \"${CHECKSUM}\" ]; then     set -eu;     curl -fsSLO --compressed \"https://unofficial-builds.nodejs.org/download/release/v$NODE_VERSION/node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\";     echo \"$CHECKSUM  node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\" | sha256sum -c -       \u0026\u0026 tar -xJf \"node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\" -C /usr/local --strip-components=1 --no-same-owner       \u0026\u0026 ln -s /usr/local/bin/node /usr/local/bin/nodejs;   else     echo \"Building from source\"     \u0026\u0026 apk add --no-cache --virtual .build-deps-full         binutils-gold         g++         gcc         gnupg         libgcc         linux-headers         make         python3     \u0026\u0026 for key in       4ED778F539E3634C779C87C6D7062848A1AB005C       141F07595B7B3FFE74309A937405533BE57C7D57       74F12602B6F1C4E913FAA37AD3A89613643B6201       DD792F5973C6DE52C432CBDAC77ABFA00DDBF2B7       61FC681DFB92A079F1685E77973F295594EC4689       8FCCA13FEF1D0C2E91008E09770F7A9A5AE15600       C4F0DFFF4E8C1A8236409D08E73BC641CC11F4C8       890C08DB8579162FEE0DF9DB8BEAB4DFCF555EF4       C82FA3AE1CBEDC6BE46B9360C43CEC45C17AB93C       108F52B48DB57BB0CC439B2997B01419BD92F80A     ; do       gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$key\" ||       gpg --batch --keyserver keyserver.ubuntu.com --recv-keys \"$key\" ;     done     \u0026\u0026 curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.xz\"     \u0026\u0026 curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc\"     \u0026\u0026 gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc     \u0026\u0026 grep \" node-v$NODE_VERSION.tar.xz\\$\" SHASUMS256.txt | sha256sum -c -     \u0026\u0026 tar -xf \"node-v$NODE_VERSION.tar.xz\"     \u0026\u0026 cd \"node-v$NODE_VERSION\"     \u0026\u0026 ./configure     \u0026\u0026 make -j$(getconf _NPROCESSORS_ONLN) V=     \u0026\u0026 make install     \u0026\u0026 apk del .build-deps-full     \u0026\u0026 cd ..     \u0026\u0026 rm -Rf \"node-v$NODE_VERSION\"     \u0026\u0026 rm \"node-v$NODE_VERSION.tar.xz\" SHASUMS256.txt.asc SHASUMS256.txt;   fi   \u0026\u0026 rm -f \"node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\"   \u0026\u0026 apk del .build-deps   \u0026\u0026 node --version   \u0026\u0026 npm --version"
+        },
+        {
+          "created": "2023-03-29T22:22:17.071841931Z",
+          "created_by": "/bin/sh -c #(nop)  ENV YARN_VERSION=1.22.19",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-03-29T22:22:20.894202363Z",
+          "created_by": "/bin/sh -c apk add --no-cache --virtual .build-deps-yarn curl gnupg tar   \u0026\u0026 for key in     6A010C5166006599AA17F08146C2130DFD2497F5   ; do     gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$key\" ||     gpg --batch --keyserver keyserver.ubuntu.com --recv-keys \"$key\" ;   done   \u0026\u0026 curl -fsSLO --compressed \"https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz\"   \u0026\u0026 curl -fsSLO --compressed \"https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz.asc\"   \u0026\u0026 gpg --batch --verify yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz   \u0026\u0026 mkdir -p /opt   \u0026\u0026 tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/   \u0026\u0026 ln -s /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn   \u0026\u0026 ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg   \u0026\u0026 rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz   \u0026\u0026 apk del .build-deps-yarn   \u0026\u0026 yarn --version"
+        },
+        {
+          "created": "2023-03-29T22:22:20.996968414Z",
+          "created_by": "/bin/sh -c #(nop) COPY file:4d192565a7220e135cab6c77fbc1c73211b69f3d9fb37e62857b2c6eb9363d51 in /usr/local/bin/ "
+        },
+        {
+          "created": "2023-03-29T22:22:21.077912244Z",
+          "created_by": "/bin/sh -c #(nop)  ENTRYPOINT [\"docker-entrypoint.sh\"]",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-03-29T22:22:21.159107261Z",
+          "created_by": "/bin/sh -c #(nop)  CMD [\"node\"]",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-06-11T18:42:18.321967236Z",
+          "created_by": "/bin/sh -c #(nop)  ENV PORT=8080",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-06-11T18:42:18.517381254Z",
+          "created_by": "/bin/sh -c #(nop) WORKDIR /app"
+        },
+        {
+          "created": "2023-06-11T18:42:19.215077045Z",
+          "created_by": "/bin/sh -c #(nop)  LABEL project=public apis",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-06-11T18:42:20.20361Z",
+          "created_by": "/bin/sh -c #(nop)  LABEL owner=RoxsRoss",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-06-11T18:42:22.000212777Z",
+          "created_by": "/bin/sh -c #(nop) COPY dir:a12f9218e7cfc4aa4ec7a71989fc235b3b1331403d3be60c30843b16e317fa5d in /app/ "
+        },
+        {
+          "created": "2023-06-11T18:42:34.441642886Z",
+          "created_by": "/bin/sh -c npm install"
+        },
+        {
+          "created": "2023-06-11T18:42:34.784768948Z",
+          "created_by": "/bin/sh -c #(nop)  EXPOSE 8080",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-06-11T18:42:35.278523677Z",
+          "created_by": "/bin/sh -c #(nop)  CMD [\"npm\" \"start\"]",
+          "empty_layer": true
+        }
+      ],
+      "os": "linux",
+      "rootfs": {
+        "type": "layers",
+        "diff_ids": [
+          "sha256:f1417ff83b319fbdae6dd9cd6d8c9c88002dcd75ecf6ec201c8c6894681cf2b5",
+          "sha256:1d8bcb7a961eba17f36a9bdfed6e988efc36f628f79df427609b92817a3888f6",
+          "sha256:b951f8a113f5cb174e44d411da76c4f72fef8e95ef1d03bcf4a1592a21a8aeb6",
+          "sha256:3cddc64f59e23f9de6ac9ea28cbc3d3095ddd726b53dd241a429a843f53dccf1",
+          "sha256:425f13041034f125ef0716ed564e988fbf2116ac716396f0e27bded4e1102fbf",
+          "sha256:123bedc32ea6c094d9c71d9f4b1ecbca87f47727ce1b3609a10a1319afba14f5",
+          "sha256:086ec7348995a9b70dade37d0e6867886e617a3e9db7927d2381416f83523915"
+        ]
+      },
+      "config": {
+        "Cmd": [
+          "npm",
+          "start"
+        ],
+        "Entrypoint": [
+          "docker-entrypoint.sh"
+        ],
+        "Env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "NODE_VERSION=16.20.0",
+          "YARN_VERSION=1.22.19",
+          "PORT=8080"
+        ],
+        "Image": "sha256:8d7d989c7eedb4cba4342c76e60d6c32b601bb154b41aa337e7e5dde43daa4bd",
+        "Labels": {
+          "owner": "RoxsRoss",
+          "project": "public apis"
+        },
+        "WorkingDir": "/app",
+        "ExposedPorts": {
+          "8080/tcp": {}
+        }
+      }
+    }
+  },
+  "Results": [
+    {
+      "Target": "trivy-image:89070ef8aa3311c0cdfdf7223ea47e916707ff82 (alpine 3.17.3)",
+      "Class": "os-pkgs",
+      "Type": "alpine",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2023-2650",
+          "PkgID": "libcrypto3@3.0.8-r3",
+          "PkgName": "libcrypto3",
+          "InstalledVersion": "3.0.8-r3",
+          "FixedVersion": "3.0.9-r0",
+          "Layer": {
+            "DiffID": "sha256:f1417ff83b319fbdae6dd9cd6d8c9c88002dcd75ecf6ec201c8c6894681cf2b5"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-2650",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "Possible DoS translating ASN.1 object identifiers",
+          "Description": "Issue summary: Processing some specially crafted ASN.1 object identifiers or\ndata containing them may be very slow.\n\nImpact summary: Applications that use OBJ_obj2txt() directly, or use any of\nthe OpenSSL subsystems OCSP, PKCS7/SMIME, CMS, CMP/CRMF or TS with no message\nsize limit may experience notable to very long delays when processing those\nmessages, which may lead to a Denial of Service.\n\nAn OBJECT IDENTIFIER is composed of a series of numbers - sub-identifiers -\nmost of which have no size limit.  OBJ_obj2txt() may be used to translate\nan ASN.1 OBJECT IDENTIFIER given in DER encoding form (using the OpenSSL\ntype ASN1_OBJECT) to its canonical numeric text form, which are the\nsub-identifiers of the OBJECT IDENTIFIER in decimal form, separated by\nperiods.\n\nWhen one of the sub-identifiers in the OBJECT IDENTIFIER is very large\n(these are sizes that are seen as absurdly large, taking up tens or hundreds\nof KiBs), the translation to a decimal number in text may take a very long\ntime.  The time complexity is O(n^2) with 'n' being the size of the\nsub-identifiers in bytes (*).\n\nWith OpenSSL 3.0, support to fetch cryptographic algorithms using names /\nidentifiers in string form was introduced.  This includes using OBJECT\nIDENTIFIERs in canonical numeric text form as identifiers for fetching\nalgorithms.\n\nSuch OBJECT IDENTIFIERs may be received through the ASN.1 structure\nAlgorithmIdentifier, which is commonly used in multiple protocols to specify\nwhat cryptographic algorithm should be used to sign or verify, encrypt or\ndecrypt, or digest passed data.\n\nApplications that call OBJ_obj2txt() directly with untrusted data are\naffected, with any version of OpenSSL.  If the use is for the mere purpose\nof display, the severity is considered low.\n\nIn OpenSSL 3.0 and newer, this affects the subsystems OCSP, PKCS7/SMIME,\nCMS, CMP/CRMF or TS.  It also impacts anything that processes X.509\ncertificates, including simple things like verifying its signature.\n\nThe impact on TLS is relatively low, because all versions of OpenSSL have a\n100KiB limit on the peer's certificate chain.  Additionally, this only\nimpacts clients, or servers that have explicitly enabled client\nauthentication.\n\nIn OpenSSL 1.1.1 and 1.0.2, this only affects displaying diverse objects,\nsuch as X.509 certificates.  This is assumed to not happen in such a way\nthat it would cause a Denial of Service, so these versions are considered\nnot affected by this issue in such a way that it would be cause for concern,\nand the severity is therefore considered low.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-770"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.9
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2023/05/30/1",
+            "https://access.redhat.com/security/cve/CVE-2023-2650",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2650",
+            "https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=423a2bc737a908ad0c77bda470b2b59dc879936b",
+            "https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=853c5e56ee0b8650c73140816bb8b91d6163422c",
+            "https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=9e209944b35cf82368071f160a744b6178f9b098",
+            "https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=db779b0e10b047f2585615e0b8f2acdf21f8544a",
+            "https://lists.debian.org/debian-lts-announce/2023/06/msg00011.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-2650",
+            "https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2023-0009",
+            "https://ubuntu.com/security/notices/USN-6119-1",
+            "https://www.cve.org/CVERecord?id=CVE-2023-2650",
+            "https://www.debian.org/security/2023/dsa-5417",
+            "https://www.openssl.org/news/secadv/20230530.txt"
+          ],
+          "PublishedDate": "2023-05-30T14:15:00Z",
+          "LastModifiedDate": "2023-06-09T00:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-2650",
+          "PkgID": "libssl3@3.0.8-r3",
+          "PkgName": "libssl3",
+          "InstalledVersion": "3.0.8-r3",
+          "FixedVersion": "3.0.9-r0",
+          "Layer": {
+            "DiffID": "sha256:f1417ff83b319fbdae6dd9cd6d8c9c88002dcd75ecf6ec201c8c6894681cf2b5"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-2650",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "Possible DoS translating ASN.1 object identifiers",
+          "Description": "Issue summary: Processing some specially crafted ASN.1 object identifiers or\ndata containing them may be very slow.\n\nImpact summary: Applications that use OBJ_obj2txt() directly, or use any of\nthe OpenSSL subsystems OCSP, PKCS7/SMIME, CMS, CMP/CRMF or TS with no message\nsize limit may experience notable to very long delays when processing those\nmessages, which may lead to a Denial of Service.\n\nAn OBJECT IDENTIFIER is composed of a series of numbers - sub-identifiers -\nmost of which have no size limit.  OBJ_obj2txt() may be used to translate\nan ASN.1 OBJECT IDENTIFIER given in DER encoding form (using the OpenSSL\ntype ASN1_OBJECT) to its canonical numeric text form, which are the\nsub-identifiers of the OBJECT IDENTIFIER in decimal form, separated by\nperiods.\n\nWhen one of the sub-identifiers in the OBJECT IDENTIFIER is very large\n(these are sizes that are seen as absurdly large, taking up tens or hundreds\nof KiBs), the translation to a decimal number in text may take a very long\ntime.  The time complexity is O(n^2) with 'n' being the size of the\nsub-identifiers in bytes (*).\n\nWith OpenSSL 3.0, support to fetch cryptographic algorithms using names /\nidentifiers in string form was introduced.  This includes using OBJECT\nIDENTIFIERs in canonical numeric text form as identifiers for fetching\nalgorithms.\n\nSuch OBJECT IDENTIFIERs may be received through the ASN.1 structure\nAlgorithmIdentifier, which is commonly used in multiple protocols to specify\nwhat cryptographic algorithm should be used to sign or verify, encrypt or\ndecrypt, or digest passed data.\n\nApplications that call OBJ_obj2txt() directly with untrusted data are\naffected, with any version of OpenSSL.  If the use is for the mere purpose\nof display, the severity is considered low.\n\nIn OpenSSL 3.0 and newer, this affects the subsystems OCSP, PKCS7/SMIME,\nCMS, CMP/CRMF or TS.  It also impacts anything that processes X.509\ncertificates, including simple things like verifying its signature.\n\nThe impact on TLS is relatively low, because all versions of OpenSSL have a\n100KiB limit on the peer's certificate chain.  Additionally, this only\nimpacts clients, or servers that have explicitly enabled client\nauthentication.\n\nIn OpenSSL 1.1.1 and 1.0.2, this only affects displaying diverse objects,\nsuch as X.509 certificates.  This is assumed to not happen in such a way\nthat it would cause a Denial of Service, so these versions are considered\nnot affected by this issue in such a way that it would be cause for concern,\nand the severity is therefore considered low.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-770"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.9
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2023/05/30/1",
+            "https://access.redhat.com/security/cve/CVE-2023-2650",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2650",
+            "https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=423a2bc737a908ad0c77bda470b2b59dc879936b",
+            "https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=853c5e56ee0b8650c73140816bb8b91d6163422c",
+            "https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=9e209944b35cf82368071f160a744b6178f9b098",
+            "https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=db779b0e10b047f2585615e0b8f2acdf21f8544a",
+            "https://lists.debian.org/debian-lts-announce/2023/06/msg00011.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-2650",
+            "https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2023-0009",
+            "https://ubuntu.com/security/notices/USN-6119-1",
+            "https://www.cve.org/CVERecord?id=CVE-2023-2650",
+            "https://www.debian.org/security/2023/dsa-5417",
+            "https://www.openssl.org/news/secadv/20230530.txt"
+          ],
+          "PublishedDate": "2023-05-30T14:15:00Z",
+          "LastModifiedDate": "2023-06-09T00:15:00Z"
+        }
+      ]
+    },
+    {
+      "Target": "Node.js",
+      "Class": "lang-pkgs",
+      "Type": "node-pkg",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2022-0235",
+          "PkgID": "node-fetch@2.0.0",
+          "PkgName": "node-fetch",
+          "PkgPath": "app/node_modules/node-fetch/package.json",
+          "InstalledVersion": "2.0.0",
+          "FixedVersion": "2.6.7, 3.1.1",
+          "Layer": {
+            "DiffID": "sha256:086ec7348995a9b70dade37d0e6867886e617a3e9db7927d2381416f83523915"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-0235",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "exposure of sensitive information to an unauthorized actor",
+          "Description": "node-fetch is vulnerable to Exposure of Sensitive Information to an Unauthorized Actor",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-200"
+          ],
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            },
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:N",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+              "V2Score": 5.8,
+              "V3Score": 6.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N",
+              "V3Score": 6.1
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2023:0050",
+            "https://access.redhat.com/security/cve/CVE-2022-0235",
+            "https://bugzilla.redhat.com/2044591",
+            "https://bugzilla.redhat.com/2066009",
+            "https://bugzilla.redhat.com/2134609",
+            "https://bugzilla.redhat.com/2140911",
+            "https://bugzilla.redhat.com/2150323",
+            "https://cert-portal.siemens.com/productcert/pdf/ssa-637483.pdf",
+            "https://errata.almalinux.org/8/ALSA-2023-0050.html",
+            "https://github.com/advisories/GHSA-r683-j2x4-v87g",
+            "https://github.com/node-fetch/node-fetch/commit/1ef4b560a17e644a02a3bfdea7631ffeee578b35",
+            "https://github.com/node-fetch/node-fetch/commit/36e47e8a6406185921e4985dcbeff140d73eaa10",
+            "https://github.com/node-fetch/node-fetch/commit/5c32f002fdd65b1c6a8f1e3620210813d45c7e60",
+            "https://github.com/node-fetch/node-fetch/pull/1449/commits/5c32f002fdd65b1c6a8f1e3620210813d45c7e60",
+            "https://github.com/node-fetch/node-fetch/pull/1453",
+            "https://huntr.dev/bounties/d26ab655-38d6-48b3-be15-f9ad6b6ae6f7",
+            "https://huntr.dev/bounties/d26ab655-38d6-48b3-be15-f9ad6b6ae6f7/",
+            "https://linux.oracle.com/cve/CVE-2022-0235.html",
+            "https://linux.oracle.com/errata/ELSA-2023-0050.html",
+            "https://lists.debian.org/debian-lts-announce/2022/12/msg00007.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-0235",
+            "https://www.cve.org/CVERecord?id=CVE-2022-0235"
+          ],
+          "PublishedDate": "2022-01-16T17:15:00Z",
+          "LastModifiedDate": "2023-02-03T19:16:00Z"
+        }
+      ]
+    }
+  ]
+}
