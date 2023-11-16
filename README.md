@@ -39,15 +39,15 @@ Ejercicios Disponibles:
 
 - 295devops-travel: En este ejercicio, tendrás la oportunidad de trabajar con una aplicación LAMP (Linux, Apache, MySQL, PHP) llamada "295devops-travel". Configura un servidor web Apache, una base de datos MySQL y la aplicación PHP, usando contenedores docker. Tu objetivo es lograr la automatización de implementación y despliegue.
 
-[Repositorio](../bootcamp-devops-2023/295devops-travel-lamp/README.md)
+[Repositorio](https://github.com/roxsross/bootcamp-devops-2023/blob/ejercicio2-dockeriza/295devops-travel-lamp/README.md)
 
 - 295topics-fullstack: Aquí, te enfrentarás a un desafío completo de pila completa. La aplicación "295topics" consta de un frontend y un backend. Deberás contenerizar ambos componentes utilizando Docker. Además, configurarás una base de datos MongoDB con datos iniciales y orquestarás todo el entorno utilizando Docker Compose.
 
-[Repositorio](../bootcamp-devops-2023/295topics-fullstack/README.md)
+[Repositorio](https://github.com/roxsross/bootcamp-devops-2023/blob/ejercicio2-dockeriza/295topics-fullstack/README.md)
 
 - 295words: En este ejercicio, trabajarás con la aplicación "295words", que presenta un frontend en Go, una API en Java y utiliza PostgreSQL como base de datos. Tu objetivo es crear un entorno de contenedor eficiente y escalable para esta aplicación. Utiliza Docker para contenerizar cada componente y configura la base de datos PostgreSQL para la escalabilidad.
 
-[Repositorio](../bootcamp-devops-2023/295words-docker/Readme.md)
+[Repositorio](https://github.com/roxsross/bootcamp-devops-2023/blob/ejercicio2-dockeriza/295words-docker/Readme.md)
 
 ### Objetivos de DevOps:
 
