@@ -12,9 +12,9 @@ Debes aplicar tus habilidades de DevOps para containerizar y gestionar la aplica
 
 Esta aplicación consta de tres componentes principales:
 
-- Frontend en Node.js y Express: Este componente sirve contenido web en el puerto 3000. Deberás crear un Dockerfile para el frontend, construir la imagen y publicarla en Docker Hub.
+- Backend en Node.js y Express: Este componente sirve contenido web en el puerto 3000. Deberás crear un Dockerfile para el frontend, construir la imagen y publicarla en Docker Hub.
 
-- Backend en TypeScript: Este componente se ejecuta en el puerto 5000 y se conecta a una base de datos MongoDB. Deberás crear un Dockerfile para el backend, construir la imagen y publicarla en Docker Hub.
+- Frontend en TypeScript: Este componente se ejecuta en el puerto 5000 y se conecta a una base de datos MongoDB. Deberás crear un Dockerfile para el backend, construir la imagen y publicarla en Docker Hub.
 
 - Base de Datos MongoDB: La base de datos se iniciará a través de un contenedor de MongoDB. Además, deberás proporcionar un archivo mongo-init.js que cargue datos iniciales en la base de datos cuando se inicie el contenedor de MongoDB.
 
@@ -22,9 +22,9 @@ Esta aplicación consta de tres componentes principales:
 
 ## Requisitos:
 
-### Frontend en Node.js y Express:
+### Backend en Node.js y Express:
 
-- Se proporciona el código fuente del frontend en Node.js y Express 
+- Se proporciona el código fuente del backend en Node.js y Express 
 el mismo utiliza el puerto 3000 para exponerse a Internet.
 - Crea un Dockerfile para el frontend que incluya todas las dependencias necesarias y establezca el comando de inicio.
 - Construye la imagen del frontend utilizando el Dockerfile.
@@ -34,14 +34,14 @@ a traves de la variable `API_URI` en donde se conectara con el backend
 
 Por ejemplo: `API_URI: http://topics-api:5000/api/topics`
 
-### Pruebas front
+### Pruebas al backend
     Se puede realizar pruebas de conexion `http://localhost:3000`
     Recuerden siempre revisar los logs
 
-### Backend en TypeScript:
+### Frontend en TypeScript:
 
-- Se Proporciona el código fuente del backend en TypeScript que utiliza el puerto 5000 y se conecta a una base de datos MongoDB.
-- Crea un Dockerfile para el backend que incluya todas las dependencias necesarias y establezca el comando de inicio.
+- Se Proporciona el código fuente del frontend en TypeScript que utiliza el puerto 5000 y se conecta a una base de datos MongoDB.
+- Crea un Dockerfile para el frontend que incluya todas las dependencias necesarias y establezca el comando de inicio.
 - Construye la imagen del backend utilizando el Dockerfile.
 - Publica la imagen en Docker Hub.
 
@@ -69,7 +69,7 @@ export default {
 ```
 Es importante el uso de las variables de entorno
 
-### Pruebas backend
+### Pruebas frontend
     Se puede realizar pruebas de conexion `http://localhost:5000/api/topics`
     recuerden revisar los logs
 
