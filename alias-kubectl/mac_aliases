@@ -1,0 +1,33 @@
+## get rid of command not found ##
+alias cd..='cd ..'
+ 
+## a quick way to get out of current directory ##
+alias ..='cd ..'
+alias .1='cd ..'
+alias ...='cd ../../../'
+alias .2='cd ../../../'
+alias ....='cd ../../../../'
+alias .3='cd ../../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+
+## Use a long listing format ##
+alias ll='ls -la --color=auto -h'
+alias ls='ls -la --color=auto -h'
+alias df='df -H'
+alias du='du -ch'
+
+## Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+## Start calculator with math support
+alias bc='bc -l'
+
+## Create parent directories on demand
+alias mkdir='mkdir -pv'
+
+## Colorize diff output
+# // install colordiff package 
+alias diff='colordiff'
