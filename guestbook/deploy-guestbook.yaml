@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guestbook-deploy
+spec:
+  selector:
+    matchLabels:
+      app: guestbook
+  template:
+    metadata:
+      labels:
+        app: guestbook
+    spec:
+      containers:
+      - name: guestbook
+        image: roxsross12/guestbook
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "50m"
+        ports:
+        - containerPort: 5000
+
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: guestbook-svc
+spec:
+  type: NodePort
+  selector:
+    app: guestbook
+  ports:
+  - port: 5000
+    targetPort: 5000

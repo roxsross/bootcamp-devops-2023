@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  labels:
+    name: myapp
+spec:
+  containers:
+  - name: myapp
+    image: nginx:apine
+    ports:
+      - containerPort: <Port>
+
+  - name: alpine
+    image: alpine
+    command: ["/bin/sh"]
+

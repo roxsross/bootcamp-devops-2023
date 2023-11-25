@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-deploy
+spec:
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongo
+        image: bitnami/mongodb:4.4.14
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        env:
+          - name: MONGODB_ROOT_PASSWORD
+            value: notarealpassword
+          - name: MONGODB_DATABASE
+            value: pacman
+          - name: MONGODB_USERNAME
+            value: tester
+          - name: MONGODB_PASSWORD
+            value: opensecret     
+          - name: MONGODB_PORT_NUMBER
+            value: '27017'            
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - mountPath: /bitnami/mongodb
+          name: mongo  
+      volumes:
+      - name: mongo
+        emptyDir: {}
+
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: pacman-mongodb-svc
+spec:
+  selector:
+    app: mongo
+  ports:
+  - port: 27017
+    targetPort: 27017

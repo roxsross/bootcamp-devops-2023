@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pacman-app
+spec:
+  selector:
+    matchLabels:
+      app: pacman
+  template:
+    metadata:
+      labels:
+        app: pacman
+    spec:
+      containers:
+      - name: pacman
+        image: roxsross12/pacman-app:1.0.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        env:
+          - name: MONGO_SERVICE_HOST
+            value: pacman-mongodb-svc
+          - name: MONGO_USE_SSL
+            value: 'false'
+          - name: MONGO_AUTH_USER
+            value: tester
+          - name: MONGO_AUTH_PWD
+            value: opensecret     
+          - name: LOCAL_ENV
+            value: 'true'    
+          - name: MONGO_DATABASE
+            value: pacman                                   
+        ports:
+        - containerPort: 8080
+
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: pacman-app-svc
+spec:
+  type: NodePort
+  selector:
+    app: pacman
+  ports:
+  - port: 8080
+    targetPort: 8080
