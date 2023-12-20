@@ -48,7 +48,7 @@ Asegúrate de que tu imagen docker, previamente construida se actualice en el ar
 ```
   componentName: "jenkins-controller"
   image: roxsross12/jenkins #imagen personalizada
-  tag: "latest"
+  tag: "1.0.0"
   imagePullPolicy: "Always"
   imagePullSecretName: registry
 ```
@@ -62,7 +62,24 @@ serviceType: ClusterIP # cambiar a NodePort
 
 ```sh
 kubectl create namespace jenkins
-helm install jenkins jenkins/jenkins -n jenkins -f jenkins-values.yaml
+helm install jenkins jenkins/jenkins -n jenkins -f values.yaml
+```
+
+### Revisamos 
+
+```sh
+kubectl get all -n jenkins
+
+NAME            READY   STATUS    RESTARTS   AGE
+pod/jenkins-0   2/2     Running   0          2m36s
+
+NAME                    TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+service/jenkins         NodePort    10.105.138.113   <none>        8080:30660/TCP   2m36s
+service/jenkins-agent   ClusterIP   10.98.29.74      <none>        50000/TCP        2m36s
+
+NAME                       READY   AGE
+statefulset.apps/jenkins   1/1     2m36s
+
 ```
 
 ### Acceder a Jenkins
@@ -93,6 +110,10 @@ O puedes crear un túnel de Minikube y acceder a través del ingress de Nginx
 Una vez en la página de inicio de sesión, obtén la contraseña de administrador con el siguiente comando
 
 ```sh
-kubectl exec --namespace jenkins -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/chart-admin-password && echo
+kubectl exec --namespace jenkins -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/additional/chart-admin-password && echo
+```
 ```
 kubectl exec --namespace jenkins -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/additional/chart-admin-password && echo
+YKGMFdmFD6AO0dgeFlxVMR
+
+```

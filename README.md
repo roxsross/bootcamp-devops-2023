@@ -141,3 +141,6 @@ Me puedes encontrar en:
   </div>
   
    [![Comprar](https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black&link=https://www.buymeacoffee.com/roxsross)](https://www.buymeacoffee.com/roxsross)
+
+
+COPY kubectl /bin/kubectl 
