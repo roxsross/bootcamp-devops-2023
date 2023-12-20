@@ -31,7 +31,7 @@ Vamos a construir nuestra propia imagen personalizada de Jenkins con los complem
 docker build -t <docker url>/jenkins .
 docker push <docker url>/jenkins
 ```
-Crear un secreto
+Crear un secreto para docker
 
 ```sh
 kubectl create secret docker-registry registry --docker-server='<Docker registry URL here>' --docker-username='<docker registry username>' --docker-password='<password here>' --docker-email='<docker registry email>'
@@ -51,6 +51,13 @@ Asegúrate de que tu imagen docker, previamente construida se actualice en el ar
   tag: "latest"
   imagePullPolicy: "Always"
   imagePullSecretName: registry
+```
+### Importante [Si usan Killercoda ]
+
+deben modificar el service a NodePort
+
+```
+serviceType: ClusterIP # cambiar a NodePort
 ```
 
 ```sh
@@ -88,4 +95,4 @@ Una vez en la página de inicio de sesión, obtén la contraseña de administrad
 ```sh
 kubectl exec --namespace jenkins -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/chart-admin-password && echo
 ```
-
+kubectl exec --namespace jenkins -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/additional/chart-admin-password && echo
