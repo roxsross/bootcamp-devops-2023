@@ -91,21 +91,6 @@ kubectl port-forward svc/jenkins 8080:8080
 ```
 >http://localhost:8080/jenkins
 
-O puedes crear un túnel de Minikube y acceder a través del ingress de Nginx
-
-
-```sh
-➜  ~ minikube tunnel
-✅  Tunnel successfully started
-
-📌  NOTE: Please do not close this terminal as this process must stay alive for the tunnel to be accessible ...
-
-❗  The service/ingress jenkins requires privileged ports to be exposed: [80 443]
-🔑  sudo permission will be asked for it.
-🏃  Starting tunnel for service jenkins.
-[sudo] password for dave:
-```
->http://localhost/jenkins
 
 Una vez en la página de inicio de sesión, obtén la contraseña de administrador con el siguiente comando
 
