@@ -24,31 +24,95 @@
 ### by RoxsRoss
 
 ---
-### Ejecicio 3- Configura un Pipeline y Despliega tus aplicaciones con seguridad end to end
+## Descripción del Desafío
 
-Configurar un pipeline y desplegar aplicaciones con seguridad de extremo a extremo es una práctica esencial en el desarrollo de software y DevOps. Aquí tienes algunas razones fundamentales para hacerlo:
+¡Bienvenido al desafío final del bootcamp DevOps! En este desafío, demostrarás tus habilidades integrando un robusto pipeline de CI/CD utilizando Jenkins y desplegando una aplicación completa en un clúster local de Kubernetes (Minikube). 
+La aplicación comprende varios componentes esenciales: 
+- Una aplicación web front-end en Python, 
+- Un backend .NET, 
+- Un servidor Redis para votos, 
+- Una base de datos PostgreSQL respaldada por un volumen Docker, 
+- y Una aplicación web Node.js que muestra los resultados de la votación en tiempo real.
 
-- Automatización y Eficiencia: Configurar un pipeline de implementación continua (CI/CD) te permite automatizar el proceso de construcción, pruebas y despliegue de tus aplicaciones. Esto ahorra tiempo y esfuerzo, ya que las tareas repetitivas se manejan automáticamente, lo que permite a los equipos centrarse en tareas más críticas.
+## Objetivo General
 
-- Consistencia: Un pipeline bien configurado garantiza la consistencia en el proceso de despliegue. Cada vez que se realiza una implementación, se siguen los mismos pasos, lo que reduce la posibilidad de errores humanos y problemas de configuración.
+Implementar un pipeline de CI/CD que automatice la construcción, las pruebas 
+y el despliegue de la aplicación en un entorno local de Kubernetes (Minikube).
 
-- Rápida Entrega: La implementación continua permite una entrega rápida y constante de nuevas características y correcciones de errores. Los equipos pueden responder rápidamente a las demandas del negocio y a las necesidades de los usuarios.
+## Pasos del Desafío
 
-- Seguridad: Configurar un pipeline de CI/CD con seguridad end to end garantiza que se realicen pruebas y controles de seguridad en cada etapa del proceso de despliegue. Esto ayuda a identificar y abordar problemas de seguridad antes de que lleguen a producción.
+### 1. Configuración del Repositorio
 
-- Mayor Calidad: La automatización de pruebas, que es una parte integral de un pipeline de CI/CD, mejora la calidad del software. Las pruebas automatizadas detectan problemas de manera más efectiva y garantizan que el software cumpla con los estándares de calidad.
+- Utiliza un sistema de control de versiones (Git) para almacenar el código fuente de la aplicación.
+- Estructura el repositorio con las ramas de desarrollo y producción.
 
-- Rollbacks más seguros: Si se produce un problema en la implementación, un pipeline bien configurado permite realizar rollbacks de manera segura y eficiente. Esto minimiza el impacto en los usuarios y en la operación del negocio.
+### 2. Construcción del Pipeline en Jenkins
 
-- Visibilidad y Trazabilidad: Los pipelines de CI/CD proporcionan visibilidad y trazabilidad en todo el proceso de despliegue. Puedes rastrear qué cambios se implementaron, cuándo y por quién.
+- Instala Jenkins en tu entorno local o en una máquina virtual.
+- Crea un pipeline en Jenkins que abarque las siguientes etapas:
+  - **Construcción del Front-end en Python:**
+    - Clona el repositorio.
+    - Construye la aplicación web front-end en Python.
 
-- Reducción de Costos: La automatización y la eficiencia de un pipeline de CI/CD pueden reducir los costos operativos al minimizar la necesidad de intervención manual y reducir los tiempos de inactividad no planificados.
+  - **Pruebas Unitarias y de Integración:**
+    - Ejecuta pruebas unitarias para el front-end.
+    - Configura y ejecuta pruebas de integración.
 
-- Escalabilidad: A medida que tu aplicación crece, un pipeline de CI/CD bien diseñado te permite escalar tus procesos de despliegue de manera eficiente para manejar mayores cargas de trabajo.
+  - **Construcción y Despliegue del Backend .NET:**
+    - Construye el backend .NET.
+    - Despliega el backend en un entorno de prueba.
 
-- Cultura de Colaboración: La implementación continua promueve una cultura de colaboración entre equipos de desarrollo y operaciones, lo que es fundamental para el éxito de DevOps.
+  - **Pruebas Automatizadas para el Backend .NET:**
+    - Ejecuta pruebas automatizadas para el backend .NET.
 
-En resumen, configurar un pipeline de CI/CD y desplegar aplicaciones con seguridad de extremo a extremo es esencial para lograr una entrega de software eficiente, segura y de alta calidad. Ayuda a automatizar tareas, garantiza la coherencia, mejora la seguridad y permite a los equipos de desarrollo responder rápidamente a las necesidades del negocio y los usuarios.
+  - **Construcción del Backend con Node.js:**
+    - Construye la aplicación web Node.js.
+
+  - **Despliegue en Minikube:**
+    - Configura y despliega la aplicación en Minikube.
+    - Utiliza configuraciones de Kubernetes para manejar Redis y PostgreSQL.
+
+### 3. Creación de Objetos de Kubernetes
+
+- Crea archivos YAML separados para cada objeto de Kubernetes que represente los componentes de la aplicación (Deployment, Service, PersistentVolume, etc.).
+
+### 4. Creación de Imágenes Docker
+
+- Crea Dockerfiles para cada componente de la aplicación.
+- Utiliza Jenkins para construir y etiquetar las imágenes Docker.
+
+### 5. Publicación en Docker Hub usando Jenkins
+
+- Configura Jenkins para autenticarse y publicar las imágenes Docker en un repositorio en Docker Hub.
+
+### 6. Notificación y Monitoreo
+
+- Configura notificaciones en el pipeline para informar sobre el éxito o fracaso de cada etapa.
+- Implementa monitoreo básico para la aplicación desplegada en Minikube.
+
+### 7. Documentación
+
+- Proporciona documentación detallada sobre cómo ejecutar el pipeline.
+- Incluye información sobre la estructura del pipeline, requisitos previos y configuraciones adicionales.
+
+## Consideraciones Adicionales
+
+- Asegúrate de gestionar las credenciales y secretos de manera segura en Jenkins.
+- Utiliza scripts y configuraciones versionadas para la construcción y despliegue.
+- Realiza una revisión de seguridad del pipeline.
+
+## Importante (Opcionales)
+
+- En caso de no poder usar Minikube, puede usar alternativas como killercoda
+
+## Puntos Extra (Opcionales)
+
+- Implementa rollback automático en caso de fallos en producción.
+- Integra pruebas de seguridad en el pipeline.
+- Configura Jenkins para integrarse con herramientas de análisis estático de código.
+
+Este desafío abarca aspectos clave de DevOps, desde la construcción y pruebas hasta el despliegue y la monitorización. Asegúrate de comprender cada componente de la aplicación y cómo interactúan entre sí. ¡Buena suerte!
+
 
 ### Entregables.
 
