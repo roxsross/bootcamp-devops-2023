@@ -39,6 +39,7 @@ pipeline {
                         }
                     }
                     steps {
+                    sh 'npm install'
                     sh 'npm run coverage'
                     }
                 }                 
@@ -58,5 +59,15 @@ pipeline {
                '''
             }
         }
+        stage('update compose') {
+            steps {
+               sh '''
+               sed -i -- "s/REGISTRY/$REGISTRY/g" docker-compose.yaml
+               sed -i -- "s/REPLACE/$IMAGE/g" docker-compose.yaml
+               sed -i -- "s/TAG/$VERSION/g" docker-compose.yaml
+               cat docker-compose.yaml
+               '''
+            }
+        }        
     }
 }
