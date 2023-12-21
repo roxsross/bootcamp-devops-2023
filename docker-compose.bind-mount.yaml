@@ -1,0 +1,37 @@
+version: "3.8"
+services:
+  docker:
+    container_name: docker
+    image: docker:dind
+    privileged: true
+    user: root
+    restart: always 
+    volumes:
+      - $PWD/jenkins_home:/var/jenkins_home
+      - jenkins-docker-certs:/certs/client
+    environment:
+      DOCKER_TLS_CERTDIR: /certs
+
+      
+  jenkins:
+    container_name: jenkins
+    restart: always 
+    privileged: true
+    user: root
+    depends_on:
+      - docker
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - $PWD/jenkins_home:/var/jenkins_home
+      - jenkins-docker-certs:/certs/client:ro
+    environment:
+      DOCKER_HOST: tcp://docker:2376
+      DOCKER_TLS_VERIFY: 1
+      DOCKER_CERT_PATH: /certs/client
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+volumes:
+  jenkins-docker-certs:
