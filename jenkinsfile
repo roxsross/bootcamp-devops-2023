@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    environment {
+        DOCKER_HUB_LOGIN = credentials('docker')
+        IMAGE='holamundo'
+        REGISTRY='roxsross12'
+        VERSION='v1'
+    }
+
+    stages {
+        stage('build') {
+            steps {
+               sh 'docker build -t $IMAGE:$VERSION .'
+            }
+        }
+        stage('deploy to hub') {
+            steps {
+               sh '''
+               docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW
+               docker tag $IMAGE:$VERSION $REGISTRY/$IMAGE:$VERSION
+               docker push $REGISTRY/$IMAGE:$VERSION
+               '''
+            }
+        }
+    }
+}
