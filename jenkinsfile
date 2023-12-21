@@ -6,8 +6,12 @@ pipeline {
         REGISTRY='roxsross12'
         VERSION='v1'
     }
-
     stages {
+        stage('install dependencies') {
+            steps {
+               sh 'npm install'
+            }
+        }
         stage('build') {
             steps {
                sh 'docker build -t $IMAGE:$VERSION .'
