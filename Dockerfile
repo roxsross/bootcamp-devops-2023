@@ -28,4 +28,5 @@ RUN jenkins-plugin-cli \
     sshd \
     ws-cleanup \
     ssh-agent \ 
+    docker-workflow \ 
     pipeline-utility-steps
