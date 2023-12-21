@@ -8,10 +8,27 @@ pipeline {
     }
     stages {
         stage('install dependencies') {
+            agent{
+                docker {
+                    image 'node:alpine'
+                    args '-u root:root'
+                }
+            }
             steps {
                sh 'npm install'
             }
         }
+        stage('test') {
+            agent{
+                docker {
+                    image 'node:alpine'
+                    args '-u root:root'
+                }
+            }
+            steps {
+               sh 'npm run test'
+            }
+        }        
         stage('build') {
             steps {
                sh 'docker build -t $IMAGE:$VERSION .'
