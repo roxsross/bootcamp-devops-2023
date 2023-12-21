@@ -18,17 +18,32 @@ pipeline {
                sh 'npm install'
             }
         }
-        stage('test') {
-            agent{
-                docker {
-                    image 'node:alpine'
-                    args '-u root:root'
-                }
-            }
-            steps {
-               sh 'npm run test'
-            }
-        }        
+        stage ('unit-test'){
+            parallel {
+                stage('test') {
+                    agent{
+                        docker {
+                            image 'node:alpine'
+                            args '-u root:root'
+                        }
+                    }
+                    steps {
+                    sh 'npm run test'
+                    }
+                } 
+                stage('coverage') {
+                    agent{
+                        docker {
+                            image 'node:alpine'
+                            args '-u root:root'
+                        }
+                    }
+                    steps {
+                    sh 'npm run coverage'
+                    }
+                }                 
+            }//parallel
+        }         
         stage('build') {
             steps {
                sh 'docker build -t $IMAGE:$VERSION .'
