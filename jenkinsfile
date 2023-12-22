@@ -4,7 +4,8 @@ pipeline {
         DOCKER_HUB_LOGIN = credentials('docker')
         IMAGE='holamundo'
         REGISTRY='roxsross12'
-        VERSION='v1'
+        VERSION='v2'
+        SERVER='ec2-user@54.159.156.35'
     }
     stages {
         stage('install dependencies') {
@@ -67,6 +68,13 @@ pipeline {
                cat docker-compose.yaml
                '''
             }
-        }        
+        }  
+        stage('deploy to aws') {
+            steps {
+                sshagent (['ssh-aws']) {
+                    sh 'scp -o StrictHostKeyChecking=no docker-compose.yaml $SERVER:/home/ec2-user'
+                }
+            }
+        }                
     }
 }
