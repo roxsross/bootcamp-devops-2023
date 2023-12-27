@@ -1,17 +1,86 @@
-#docker run -d -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v ~/jenkins:/var/jenkins_home --name jenkins jenkins/jenkins:lts
+# BEFORE ALL
+# sysctl -w vm.max_map_count=262144
 
-version: '3'
+version: "3.8"
 services:
-  jenkins:
-    image: jenkins/jenkins:lts
+  docker:
+    container_name: docker
+    image: docker:dind
     privileged: true
     restart: always 
-    user: root
-    ports:
-      - 8081:8080
-      - 50000:50000
-    container_name: jenkins
     volumes:
-      - ~/jenkins:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/local/bin/docker:/usr/local/bin/docker
+      - jenkins-data:/var/jenkins_home
+      - jenkins-docker-certs:/certs/client
+    environment:
+      DOCKER_TLS_CERTDIR: /certs
+    networks:
+      - devsecops
+      
+  jenkins:
+    container_name: jenkins
+    restart: always 
+    depends_on:
+      - docker
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - jenkins-data:/var/jenkins_home
+      - jenkins-docker-certs:/certs/client:ro
+    environment:
+      DOCKER_HOST: tcp://docker:2376
+      DOCKER_TLS_VERIFY: 1
+      DOCKER_CERT_PATH: /certs/client
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    networks:
+      - devsecops
+#user:admin pass:admin
+  sonarQube:
+    image: sonarqube:latest
+    container_name: sonarQube
+    restart: always 
+    depends_on:
+      - sonarQube_database
+    environment:
+      SONAR_JDBC_URL: jdbc:postgresql://sonarQube_database:5432/sonar
+      SONAR_JDBC_USERNAME: sonar
+      SONAR_JDBC_PASSWORD: sonar
+    volumes:
+      - SonarQube_data:/opt/SonarQube/data
+      - SonarQube_extensions:/opt/SonarQube/extensions
+      - SonarQube_logs:/opt/SonarQube/logs
+    ports:
+      - 9000:9000
+    networks:
+      - devsecops
+  # SonarQube database
+  sonarQube_database:
+    image: postgres:latest
+    container_name: sonarQube_database
+    environment:
+      POSTGRES_USER: sonar
+      POSTGRES_PASSWORD: sonar
+      POSTGRES_DB: sonar
+    volumes:
+      - SonarQube_postgresql:/var/lib/postgresql
+      - SonarQube_postgresql_data:/var/lib/postgresql/data
+    restart: always   
+    networks:
+      - devsecops
+
+volumes:
+  jenkins-data:
+  jenkins-docker-certs:
+  SonarQube_data:
+  SonarQube_extensions:
+  SonarQube_logs:
+  SonarQube_postgresql:
+  SonarQube_postgresql_data:
+  postgresql:
+  postgresql_data:
+
+networks:
+  devsecops:
+    driver: bridge  

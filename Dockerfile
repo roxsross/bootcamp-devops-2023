@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
                           zip \
                           wget \
                           lsb-release 
+                      
 RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
   https://download.docker.com/linux/debian/gpg
 RUN echo "deb [arch=$(dpkg --print-architecture) \
@@ -29,4 +30,5 @@ RUN jenkins-plugin-cli \
     ws-cleanup \
     ssh-agent \ 
     docker-workflow \ 
+    blueocean \
     pipeline-utility-steps
